@@ -28,15 +28,13 @@ class spinxAPI(object):
 		for val in self.Datapoints:
 			self.Data[val[0]][val[2]] = val[3]
 
-	def displayPricing(self):
+	def displayPricingAsList(self):
 		if len(self.Datapoints) == 0:
 			self.updateDatapoints()
 		else:
 			for val in self.Datapoints:
 				print val
 
-	def printData(self):
-		print self.Data
 
 
 
