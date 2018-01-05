@@ -14,6 +14,7 @@ class spinxAPI(object):
 
 	def updateDatapoints(self):
 		self.Datapoints = []
+		self.Data = {}
 		res = requests.get('http://zingon-data.com/spinx/prices.csv')
 		decoded_content = res.content.decode('utf-8')
 		cr = csv.reader(decoded_content.splitlines(), delimiter=',')
@@ -25,6 +26,10 @@ class spinxAPI(object):
 					newVal.append(val.strip())
 			if len(newVal) > 1:
 				self.Datapoints.append(newVal)
+		for val in self.Datapoints:
+			self.Data[val[0]] = {}
+		for val in self.Datapoints:
+			self.Data[val[0]][val[2]] = val[3]
 
 	def displayPricing(self):
 		if len(self.Datapoints) == 0:
@@ -33,10 +38,13 @@ class spinxAPI(object):
 			for val in self.Datapoints:
 				print val
 
+	def printData(self):
+		print self.Data
+
 
 
 
 if __name__ == '__main__':
 	a = spinxAPI()
-	a.displayPricing()
+	a.printData()
 
