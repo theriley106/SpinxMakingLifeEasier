@@ -26,6 +26,22 @@
       background-color: #f2f2f2;
       padding: 25px;
     }
+    #ticker {
+  width: 125px; height: 50px;
+  background: white;
+  font-size: 3em;
+  color: #707070;
+
+  /* Centering everything */
+  position: relative;
+  left: 50%; top: 50%;
+  margin-left: -62.5px;
+
+  text-align: center;
+  line-height: 50px;
+
+  border-top: 5px solid #E54B6B;
+}
   </style>
 </head>
 <body>
@@ -37,55 +53,77 @@
   </div>
 </div>
 <br>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="panel panel-danger">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="panel panel-success">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-  </div>
-</div><br>
+
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
+
+
+    <div class="col-sm-2">
       <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-heading">{{ store.Number }}</div>
+        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
+        <div class="panel-footer">{{ store.Address }}</div>
       </div>
     </div>
-    <div class="col-sm-4">
+
+    <div class="col-sm-2">
       <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body">{% include 'priceTicker.html' %}</div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-heading">{{ store.Number }}</div>
+        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
+        <div class="panel-footer">{{ store.Address }}</div>
       </div>
     </div>
-    <div class="col-sm-4">
+
+    <div class="col-sm-2">
       <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-heading">{{ store.Number }}</div>
+        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
+        <div class="panel-footer">{{ store.Address }}</div>
       </div>
     </div>
+
+    <div class="col-sm-2">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{ store.Number }}</div>
+        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
+        <div class="panel-footer">{{ store.Address }}</div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{ store.Number }}</div>
+        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
+        <div class="panel-footer">{{ store.Address }}</div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{ store.Number }}</div>
+        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
+        <div class="panel-footer">{{ store.Address }}</div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{ store.Number }}</div>
+        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
+        <div class="panel-footer">{{ store.Address }}</div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{ store.Number }}</div>
+        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
+        <div class="panel-footer">{{ store.Address }}</div>
+      </div>
+    </div>
+
+
   </div>
 </div><br><br>
 
