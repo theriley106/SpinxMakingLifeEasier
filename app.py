@@ -6,7 +6,7 @@ app = Flask(__name__, static_url_path='/static')
 @app.route('/', methods=['GET'])
 def index():
 	price = {"Dollar": '1', "CentOne": '1', "CentTwo": '2'}
-	return render_template("flipClock.html", price=price)
+	return render_template("index.html", price=4.15)
 
 @app.route('/test', methods=['GET'])
 def testPage():
