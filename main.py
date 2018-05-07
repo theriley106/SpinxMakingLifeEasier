@@ -41,5 +41,5 @@ class spinxAPI(object):
 
 if __name__ == '__main__':
 	a = spinxAPI()
-	a.printData()
+	a.displayPricingAsList()
 

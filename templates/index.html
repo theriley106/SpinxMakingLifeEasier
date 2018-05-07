@@ -61,62 +61,21 @@
         <div class="panel-heading">{{ store.Number }}</div>
         <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
         <div class="panel-footer">{{ store.Address }}</div>
-      </div>
-    </div>
+        <div class="panel-footer">
 
-    <div class="col-sm-2">
-      <div class="panel panel-primary">
-        <div class="panel-heading">{{ store.Number }}</div>
-        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
-        <div class="panel-footer">{{ store.Address }}</div>
-      </div>
-    </div>
+                <select class="form-control flipthis-highlight" id="select">
+                {% for optionVal in store.Options %}
+                    <option>{{ optionVal }}</option>
+                    {% endfor %}
+                </select>
 
-    <div class="col-sm-2">
-      <div class="panel panel-primary">
-        <div class="panel-heading">{{ store.Number }}</div>
-        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
-        <div class="panel-footer">{{ store.Address }}</div>
-      </div>
-    </div>
 
-    <div class="col-sm-2">
-      <div class="panel panel-primary">
-        <div class="panel-heading">{{ store.Number }}</div>
-        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
-        <div class="panel-footer">{{ store.Address }}</div>
-      </div>
-    </div>
-
-    <div class="col-sm-2">
-      <div class="panel panel-primary">
-        <div class="panel-heading">{{ store.Number }}</div>
-        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
-        <div class="panel-footer">{{ store.Address }}</div>
-      </div>
-    </div>
-
-    <div class="col-sm-2">
-      <div class="panel panel-primary">
-        <div class="panel-heading">{{ store.Number }}</div>
-        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
-        <div class="panel-footer">{{ store.Address }}</div>
-      </div>
-    </div>
-
-    <div class="col-sm-2">
-      <div class="panel panel-primary">
-        <div class="panel-heading">{{ store.Number }}</div>
-        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
-        <div class="panel-footer">{{ store.Address }}</div>
-      </div>
-    </div>
-
-    <div class="col-sm-2">
-      <div class="panel panel-primary">
-        <div class="panel-heading">{{ store.Number }}</div>
-        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
-        <div class="panel-footer">{{ store.Address }}</div>
+          <ul class="pagination">
+              <li class="active"><a href="#">Unleaded</a></li>
+              <li><a href="#">Diesel</a></li>
+              <li><a href="#">E-85</a></li>
+          </ul>
+        </div>
       </div>
     </div>
 
