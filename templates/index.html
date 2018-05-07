@@ -58,10 +58,10 @@
   {% for store in storeInfo %}
     <div class="col-sm-2">
       <div class="panel panel-primary">
-        <div class="panel-heading">{{ store.Number }}</div>
+        <div class="panel-heading" style='font-size:11px;'>Store Number: {{ store.Number }}</div>
         <div class="panel-body"><div id='ticker'>${{ "%.2f"|format(store.Price) }}</div></div>
         <div class="panel-footer">
-                <select class="form-control flipthis-highlight" id="select" style='outline: none !important;'>
+                <select class="form-control flipthis-highlight" id="select" style='outline: none !important; font-size: 12px;'>
                 {% for optionVal in store.Options %}
                     <option>{{ optionVal.Name }}</option>
                     {% endfor %}
