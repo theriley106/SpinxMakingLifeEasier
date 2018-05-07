@@ -79,6 +79,7 @@ function updateVals(){
   // This makes a json request to the flask API to get file size info
   var priceInfo = JSON.parse(jsonString);
   var headerOutput = document.getElementById("listOfPrices");
+  headerOutput.innerHTML = "";
   for (storeIndex in priceInfo) {
     // The json object is a list, so this is the INDEX of all items in the list
     store = priceInfo[storeIndex];
@@ -108,6 +109,6 @@ function handleSelect(elm)
   document.getElementById("ticker" + boxID).innerHTML = "$" + parseFloat(priceListVal).toFixed(2);
 }
 updateVals();
-setInterval(function(){ updateVals();}, 5000);
+setInterval(function(){ updateVals();}, 6000);
 </script>
 </html>
