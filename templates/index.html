@@ -108,5 +108,6 @@ function handleSelect(elm)
   document.getElementById("ticker" + boxID).innerHTML = "$" + parseFloat(priceListVal).toFixed(2);
 }
 updateVals();
+setInterval(function(){ updateVals();}, 5000);
 </script>
 </html>
