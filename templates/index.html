@@ -26,7 +26,7 @@
       background-color: #f2f2f2;
       padding: 25px;
     }
-    #ticker {
+    .ticker {
       width: 125px; height: 50px;
       font-size: 40px;
       color: #707070;
@@ -92,7 +92,7 @@ function updateVals(){
     headerOutput.innerHTML += `<div class="col-sm-2">
       <div class="panel panel-primary">
         <div class="panel-heading" style='font-size:11px;'>Store Number: ` + store.Number + `</div>
-        <div class="panel-body"><div id='ticker` + storeIndex + `'>$` + parseFloat(store.Price).toFixed(2) + `</div></div>
+        <div class="panel-body"><div class='ticker' id='ticker` + storeIndex + `'>$` + parseFloat(store.Price).toFixed(2) + `</div></div>
         <div class="panel-footer">
                 <select name="formal" onchange="javascript:handleSelect(this)" class="form-control flipthis-highlight" id="select" style='outline: none !important; font-size: 12px;'>` + e + '</select></div></div></div>';
   }
@@ -105,9 +105,8 @@ function handleSelect(elm)
   var fields = elm.value.split('-');
   var boxID = fields[1];
   var priceListVal = fields[0];
-  document.getElementById("ticker" + boxID).innerHTML = "$" + priceListVal;
+  document.getElementById("ticker" + boxID).innerHTML = "$" + parseFloat(priceListVal).toFixed(2);
 }
 updateVals();
-console.log(PriceList);
 </script>
 </html>
