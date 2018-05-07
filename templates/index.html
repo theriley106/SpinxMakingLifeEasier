@@ -55,31 +55,22 @@
 <div class="container">
   <div class="row">
 
-
+  {% for store in storeInfo %}
     <div class="col-sm-2">
       <div class="panel panel-primary">
         <div class="panel-heading">{{ store.Number }}</div>
-        <div class="panel-body"><div id='ticker'>${{ store.Price }}</div></div>
-        <div class="panel-footer">{{ store.Address }}</div>
+        <div class="panel-body"><div id='ticker'>${{ "%.2f"|format(store.Price) }}</div></div>
         <div class="panel-footer">
-
-                <select class="form-control flipthis-highlight" id="select">
+                <select class="form-control flipthis-highlight" id="select" style='outline: none !important;'>
                 {% for optionVal in store.Options %}
-                    <option>{{ optionVal }}</option>
+                    <option>{{ optionVal.Name }}</option>
                     {% endfor %}
                 </select>
-
-
-          <ul class="pagination">
-              <li class="active"><a href="#">Unleaded</a></li>
-              <li><a href="#">Diesel</a></li>
-              <li><a href="#">E-85</a></li>
-          </ul>
-        </div>
+          </div>
       </div>
     </div>
 
-
+{% endfor %}
   </div>
 </div><br><br>
 
