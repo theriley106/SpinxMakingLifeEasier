@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
   <title>Spinx - Making Life Easier</title>
   <meta charset="utf-8">
@@ -40,6 +42,7 @@
       border-top: 5px solid #E54B6B;
   }
   </style>
+
 </head>
 <body>
 
@@ -53,26 +56,48 @@
 
 
 <div class="container">
-  <div class="row">
+  <div class="row" id='listOfPrices'>
 
-  {% for store in storeInfo %}
-    <div class="col-sm-2">
-      <div class="panel panel-primary">
-        <div class="panel-heading" style='font-size:11px;'>Store Number: {{ store.Number }}</div>
-        <div class="panel-body"><div id='ticker'>${{ "%.2f"|format(store.Price) }}</div></div>
-        <div class="panel-footer">
-                <select class="form-control flipthis-highlight" id="select" style='outline: none !important; font-size: 12px;'>
-                {% for optionVal in store.Options %}
-                    <option>{{ optionVal.Name }}</option>
-                    {% endfor %}
-                </select>
-          </div>
-      </div>
-    </div>
-
-{% endfor %}
   </div>
 </div><br><br>
-
 </body>
+<script>
+function httpGet(theUrl)
+// The network request grabs the json containing mp3 structure
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
+function updateVals(){
+  updateURL = "/update";
+  // This is the structure of the api call
+  jsonString = httpGet(updateURL);
+  // This makes a json request to the flask API to get file size info
+  var priceInfo = JSON.parse(jsonString);
+  var headerOutput = document.getElementById("listOfPrices");
+  for (storeIndex in priceInfo) {
+    // The json object is a list, so this is the INDEX of all items in the list
+    store = priceInfo[storeIndex];
+    e = "";
+    for (optionIndex in store.Options) {
+      optionVal = store.Options[optionIndex];
+      e += "<option>" + optionVal.Name + "</option>";
+    }
+    // This assigns listElem as the actual object rather than the index number
+    headerOutput.innerHTML += `<div class="col-sm-2">
+      <div class="panel panel-primary">
+        <div class="panel-heading" style='font-size:11px;'>Store Number: ` + store.Number + `</div>
+        <div class="panel-body"><div id='ticker'>$` + store.Price + `</div></div>
+        <div class="panel-footer">
+                <select class="form-control flipthis-highlight" id="select" style='outline: none !important; font-size: 12px;'>` + e + '</select></div></div></div>';
+  }
+
+
+}
+updateVals();
+
+</script>
 </html>
