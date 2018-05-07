@@ -90,7 +90,7 @@ function updateVals(){
     headerOutput.innerHTML += `<div class="col-sm-2">
       <div class="panel panel-primary">
         <div class="panel-heading" style='font-size:11px;'>Store Number: ` + store.Number + `</div>
-        <div class="panel-body"><div id='ticker'>$` + store.Price + `</div></div>
+        <div class="panel-body"><div id='ticker'>$` + parseFloat(store.Price).toFixed(2) + `</div></div>
         <div class="panel-footer">
                 <select class="form-control flipthis-highlight" id="select" style='outline: none !important; font-size: 12px;'>` + e + '</select></div></div></div>';
   }
