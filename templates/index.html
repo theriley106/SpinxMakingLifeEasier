@@ -80,7 +80,7 @@ Unleaded-87
         <div class="col-sm-4">
 <div class="panel panel-primary" style="border-color: #f00 !important;">
 <div class="panel-heading" id='priceHeaders' style="font-size:14px;border-color: #f00 !important; text-align: center;font-weight: bold;">Spinx Average</div>
-<div class="panel-body flipthis-highlight"><div class="ticker" id="ticker5">$2.50</div></div>
+<div class="panel-body flipthis-highlight"><div class="ticker" id="spinxAvg">$2.50</div></div>
 <div class="panel-footer" style='color: #f00 !important; text-align: center;'>
 Unleaded-87
         </div></div></div>
@@ -118,6 +118,7 @@ function updateVals(){
     // The json object is a list, so this is the INDEX of all items in the list
     store = priceInfo[storeIndex];
     e = "";
+    PriceList.push(store.Price)
     for (optionIndex in store.Options) {
 
       optionVal = store.Options[optionIndex];
@@ -131,7 +132,13 @@ function updateVals(){
         <div class="panel-footer">
                 <select name="formal" onchange="javascript:handleSelect(this)" class="form-control flipthis-highlight" id="select" style='outline: none !important; font-size: 12px;'>` + e + '</select></div></div></div>';
   }
+  var sum = 0;
+  for( var i = 0; i < PriceList.length; i++ ){
+      sum += parseFloat( PriceList[i], 10 ); //don't forget to add the base
+  }
 
+  var avg = sum/PriceList.length;
+  console.log("Average: " + avg)
 
 }
 
