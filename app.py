@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, Markup, jsonify, make_response, send_from_directory, session
 import main
+import aaaInteraction
 
 app = Flask(__name__, static_url_path='/static')
 a = main.spinxAPI()
@@ -14,7 +15,9 @@ def update():
 	a.updateDatapoints()
 	return jsonify(a.DB())
 
-
+@app.route('/avgPrice', methods=['GET'])
+def avgPrice():
+	return jsonify(aaaInteraction.getAverage('SC'))
 
 @app.route('/test', methods=['GET'])
 def testPage():

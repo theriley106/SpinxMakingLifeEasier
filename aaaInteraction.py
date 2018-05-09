@@ -30,5 +30,6 @@ def getAverage(state):
 	info['diesel'] = {"state": priceInfo['data']['diesel'][0], "country": priceInfo['data']['diesel'][1]}
 	info['premium'] = {"state": priceInfo['data']['premium'][0], "country": priceInfo['data']['premium'][1]}
 	return info
+
 if __name__ == '__main__':
 	print getAverage(raw_input("State: "))
