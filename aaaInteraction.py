@@ -16,6 +16,7 @@ headers = {
 
 
 def getAverage(state):
+	info = {}
 	headers['referer'] = 'https://gasprices.aaa.com/?state={}'.format(state)
 	data = [
 		('action', 'states_cost_data'),
@@ -23,7 +24,11 @@ def getAverage(state):
 		('data[locR]', 'US'),
 	]
 	response = requests.post('https://gasprices.aaa.com/wp-admin/admin-ajax.php', headers=headers, data=data)
-	return response.json()
-
+	priceInfo = response.json()
+	info['unleaded'] = {"state": priceInfo['data']['unleaded'][0], "country": priceInfo['data']['unleaded'][1]}
+	info['midgrade'] = {"state": priceInfo['data']['midgrade'][0], "country": priceInfo['data']['midgrade'][1]}
+	info['diesel'] = {"state": priceInfo['data']['diesel'][0], "country": priceInfo['data']['diesel'][1]}
+	info['premium'] = {"state": priceInfo['data']['premium'][0], "country": priceInfo['data']['premium'][1]}
+	return info
 if __name__ == '__main__':
 	print getAverage(raw_input("State: "))
