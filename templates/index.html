@@ -138,7 +138,9 @@ function updateVals(){
   }
 
   var avg = sum/PriceList.length;
-  console.log("Average: " + avg)
+  var headerOutput = document.getElementById("spinxAvg");
+  headerOutput.innerHTML = parseFloat(avg).toFixed(2);
+
 
 }
 
