@@ -66,14 +66,14 @@
 <div class="col-sm-4">
 <div class="panel panel-primary" style="border-color: #f00 !important;">
 <div class="panel-heading" id='priceHeaders' style="font-size:14px;border-color: #f00 !important;text-align: center; font-weight: bold;">South Carolina Average</div>
-<div class="panel-body flipthis-highlight"><div class="ticker" id="ticker5">$2.50</div></div>
+<div class="panel-body flipthis-highlight"><div class="ticker" id="stateAvg">$2.50</div></div>
 <div class="panel-footer" style='color: #f00 !important; text-align: center;'>
 Unleaded-87
         </div></div></div>
         <div class="col-sm-4">
 <div class="panel panel-primary" style="border-color: #f00 !important; text-align: center;">
 <div class="panel-heading" id='priceHeaders' style="font-size:14px;border-color: #f00 !important; text-align: center;font-weight: bold;">National Average</div>
-<div class="panel-body flipthis-highlight"><div class="ticker" id="ticker5">$2.50</div></div>
+<div class="panel-body flipthis-highlight"><div class="ticker" id="nationalAvg">$2.50</div></div>
 <div class="panel-footer" style='color: #f00 !important; text-align: center;'>
 Unleaded-87
         </div></div></div>
@@ -140,6 +140,17 @@ function updateVals(){
   var avg = sum/PriceList.length;
   var headerOutput = document.getElementById("spinxAvg");
   headerOutput.innerHTML = parseFloat(avg).toFixed(2);
+
+  updateURL = "/avgPrice";
+  // This is the structure of the api call
+  jsonString = httpGet(updateURL);
+  // This makes a json request to the flask API to get file size info
+  var priceInfo = JSON.parse(jsonString);
+
+  var headerOutput = document.getElementById("stateAvg");
+  headerOutput.innerHTML = parseFloat(priceInfo.unleaded.state).toFixed(2);
+  var headerOutput = document.getElementById("nationalAvg");
+  headerOutput.innerHTML = parseFloat(priceInfo.unleaded.country).toFixed(2);
 
 
 }
