@@ -38,16 +38,17 @@ class spinxAPI(object):
 	def DB(self):
 		DB = []
 		for key, val in self.Data.items():
-			info = {}
-			info["Number"] = key
-			info["Options"] = []
-			for e, z in self.Data[key].items():
-				info["Options"].append({"Name": e, "Price": float(z)})
-			DB.append(info)
-			info["Price"] = "Error"
-			for val in info["Options"]:
-				if val['Name'] == 'Unleaded 87':
-					info["Price"] = val["Price"]
+			if str(key) != '9128':
+				info = {}
+				info["Number"] = key
+				info["Options"] = []
+				for e, z in self.Data[key].items():
+					info["Options"].append({"Name": e, "Price": float(z)})
+				DB.append(info)
+				info["Price"] = "Error"
+				for val in info["Options"]:
+					if val['Name'] == 'Unleaded 87':
+						info["Price"] = val["Price"]
 		return DB
 
 
