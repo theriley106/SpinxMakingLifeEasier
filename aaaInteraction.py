@@ -13,14 +13,15 @@ headers = {
 		'authority': 'gasprices.aaa.com',
 }
 
-data = [
-	('action', 'states_cost_data'),
-	('data[locL]', 'NJ'),
-	('data[locR]', 'US'),
-]
+
 
 def getAverage(state):
 	headers['referer'] = 'https://gasprices.aaa.com/?state={}'.format(state)
+	data = [
+		('action', 'states_cost_data'),
+		('data[locL]', state),
+		('data[locR]', 'US'),
+	]
 	response = requests.post('https://gasprices.aaa.com/wp-admin/admin-ajax.php', headers=headers, data=data)
 	return response.json()
 
