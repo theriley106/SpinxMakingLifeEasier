@@ -33,7 +33,7 @@ class spinxAPI(object):
 			self.updateDatapoints()
 		else:
 			for val in self.Datapoints:
-				print val[0]
+				print(val[0])
 
 	def DB(self):
 		DB = []
@@ -55,5 +55,5 @@ class spinxAPI(object):
 
 if __name__ == '__main__':
 	a = spinxAPI()
-	print a.DB()
+	print(a.DB())
 

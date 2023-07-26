@@ -9,4 +9,4 @@ headers = {
 
 response = requests.get('https://restmws.fuelrewards.com/fuelrewards/public/rest/cardbalance/cardnumber/782424421400826845/participantid/24270', headers=headers)
 
-print response.json()
+print(response.json())

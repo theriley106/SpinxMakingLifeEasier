@@ -32,4 +32,4 @@ def getAverage(state):
 	return info
 
 if __name__ == '__main__':
-	print getAverage(raw_input("State: "))
+	print(getAverage(input("State: ")))
